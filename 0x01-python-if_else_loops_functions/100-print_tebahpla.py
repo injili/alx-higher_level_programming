@@ -3,10 +3,10 @@ letter = 122
 n = 0
 while letter > 96:
     if n % 2 == 0:
-        print(chr(letter), end='')
+        print("{}".format(chr(letter)), end='')
     else:
         i = letter
         i -= 32
-        print(chr(i), end='')
+        print("{}".format(chr(i)), end='')
     letter -= 1
     n += 1
