@@ -2,6 +2,7 @@
 
 if __name__ == "__main__":
     """accepts arguments and does the operation"""
+    from calculator_1 import add, sub, mul, div
     import sys
 
     num = len(sys.argv) - 1
@@ -13,13 +14,13 @@ if __name__ == "__main__":
         b = int(sys.argv[3])
 
         if oper == "+":
-            result = a + b
+            result = add(a, b)
         elif oper == "-":
-            result = a - b
+            result = sub(a, b)
         elif oper == "*":
-            result = a * b
+            result = mul(a, b)
         elif oper == "/":
-            result = a / b
+            result = div(a, b)
         else:
             print("Unknown operator. Available operators: +, -, * and /")
             exit(1)
