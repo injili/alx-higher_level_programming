@@ -12,4 +12,4 @@ if __name__ == "__main__":
 
     while i <= num:
         print("{}: {}".format(i, sys.argv[i]))
-        i = i + 1
+        i += 1
