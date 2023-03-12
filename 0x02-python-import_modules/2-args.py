@@ -5,11 +5,13 @@ if __name__ == "__main__":
     num = len(sys.argv) - 1
     i = 1
 
-    if num > 0:
-        print("{} arguments:".format(num))
+    if num == 0:
+        print("{} arguments.".format(num))
+    elif num == 1:
+        print("{} argument:")
     else:
-        print("{} argument.".format(num))
+        print("{} arguments:".format(num))
 
     while i <= num:
-        print("{}:".format(i), sys.argv[i:])
+        print("{}:".format(i), sys.argv[i])
         i += 1
