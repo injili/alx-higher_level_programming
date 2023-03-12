@@ -11,5 +11,5 @@ if __name__ == "__main__":
         print("{} argument.".format(num))
 
     while i <= num:
-        print("{}:".format(i), sys.argv[i])
+        print("{}:".format(i), sys.argv[i:])
         i += 1
