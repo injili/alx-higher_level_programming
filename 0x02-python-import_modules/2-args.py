@@ -2,7 +2,7 @@
 if __name__ == "__main__":
     import sys
 
-    num = len(sys.argv) - 1
+    num = len(argv) - 1
     i = 1
 
     if num > 0:
@@ -11,5 +11,5 @@ if __name__ == "__main__":
         print("{} argument.".format(num))
 
     while i <= num:
-        print("{}: {}".format(i, sys.argv[i]))
+        print("{}: {}".format(i, argv[i]))
         i += 1
