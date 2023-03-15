@@ -10,7 +10,7 @@ def uniq_add(my_list=[]):
             for j in range(0, len(new)):
                 if i == new[j]:
                     count += 1
-                if count > 1:
+                if count == 1:
                     del new[j]
                     break
         sum_uniq = sum(new)
