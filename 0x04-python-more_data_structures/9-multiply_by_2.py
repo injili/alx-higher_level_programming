@@ -1,8 +1,4 @@
 #!/usr/bin/python3
 def multiply_by_2(a_dictionary):
-    if not a_dictionary:
-        return a_dictionary
-    else:
-        for key in a_dictionary:
-            a_dictionary[key] *= 2
-        return a_dictionary
+    return {key: value * 2 for key, value
+            in a_dictionary.items()} if a_dictionary else a_dictionary
