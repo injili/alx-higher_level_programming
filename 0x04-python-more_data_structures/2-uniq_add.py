@@ -1,17 +1,17 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
     if not my_list:
-        return  None
+        return  0
     else:
         sum_uniq = 0
+        new = my_list.copy()
         for i in my_list:
             count = 0
-            for j in range(0, len(my_list)):
-                if i == my_list[j]:
+            for j in range(0, len(new)):
+                if i == new[j]:
                     count += 1
                 if count > 1:
-                    del my_list[j]
+                    del new[j]
                     break
-        for a in my_list:
-            sum_uniq += a
+        sum_uniq = sum(new)
         return sum_uniq
