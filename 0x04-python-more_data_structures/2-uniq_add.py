@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def uniq_add(my_list=[]):
     if not my_list:
-        return 0
+        return  None
     else:
         sum_uniq = 0
         for i in my_list:
