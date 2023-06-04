@@ -1,0 +1,10 @@
+===============================
+The 0-add_integer.py test cases
+===============================
+
+This text file houses the tests used to check on the ``add_integer`` function
+
+Usage
+=====
+
+int
