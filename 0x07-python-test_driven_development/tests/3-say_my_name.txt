@@ -1,0 +1,50 @@
+============================
+The 3-say_my_name test cases
+============================
+
+#run the test with the command 'python3 -m doctest -v ./tests/3-say_my_name.txt'
+
+IMPORT MODULE:
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+STRING VALUES:
+	>>> say_my_name("Nyareki", "Gospel")
+	My name is Nyareki Gospel
+	>>> say_my_name("Nyareki")
+	My name is Nyareki 
+	>>> say_my_name("Nyareki", None)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+EMPTY STRING:
+	>>> say_my_name("", "")
+	My name is  
+	>>> say_my_name("", "Gospel")
+	My name is  Gospel
+
+NON STRING:
+	>>> say_my_name(123, "Gospel")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name(123)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+	>>> say_my_name("Nyareki", 123)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+	>>> say_my_name()
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+	>>> say_my_name(None, None)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
