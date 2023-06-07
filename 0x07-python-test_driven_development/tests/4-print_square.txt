@@ -1,0 +1,15 @@
+================================
+Module 4-print_square test cases
+================================
+
+#run the test with the command 'python3 -m doctest -v ./tests/4-print_square.txt'
+
+IMPORT MODULE:
+	>>> print_square = __import__('4-print_square').print_square
+
+PASS INT:
+	>>> print_square(4)
+	####
+	####
+	####
+	####
