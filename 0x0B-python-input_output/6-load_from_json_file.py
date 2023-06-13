@@ -9,9 +9,11 @@ from a "JSON file"
 
 def load_from_json_file(filename):
     """
-    open the file in read mode
+    Create python obj from JSON file
+    Args:
+        filename: the json file
     """
     import json
 
     with open(filename, mode="r", encoding="utf-8") as f:
-        return(f.read())
+        return (json.load(f))
