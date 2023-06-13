@@ -1,8 +1,0 @@
-============================
-Module 0-read_file Test Case
-============================
-
-#run the file with the command 'python3 -m doctest -v tests/0-read_file.txt
-
-import modules:
-	>>> read_file = __import__('0-read_file').read_file
