@@ -11,4 +11,4 @@ def append_write(filename="", text=""):
     opens the file in append mode
     """
     with open(filename, mode="a", encoding="utf-8") as f:
-        return (f.append(text))
+        return (f.write(text))
