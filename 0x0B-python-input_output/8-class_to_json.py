@@ -8,4 +8,9 @@ of an object
 
 
 def class_to_json(obj):
-
+    """
+    returns the dictionary description
+    Args:
+        obj: the object passed to the function
+    """
+    return (obj.__dict__)
