@@ -6,7 +6,6 @@ from a "JSON file"
 """
 
 
-
 def load_from_json_file(filename):
     """
     Create python obj from JSON file
