@@ -10,6 +10,6 @@ def read_file(filename=""):
     """
     opens a text file reading it
     """
-    with open(filename, "r") as file:
-        content = file.read()
+    with open(filename, "r") as the_file:
+        content = the_file.read()
         print(content)
