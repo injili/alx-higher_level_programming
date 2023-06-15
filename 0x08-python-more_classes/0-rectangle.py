@@ -6,5 +6,8 @@ an empty class Rectangle
 
 
 class Rectangle:
+    """
+    Represents a rectangle
+    """
     def __init__(self):
         return
