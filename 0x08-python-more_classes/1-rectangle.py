@@ -5,13 +5,19 @@ module 1-rectabgle
 
 
 class Rectangle:
-    """define the class"""
+    """represent the class Rectangle.
+
+    Args:
+        width(int): width of the rectangle
+        height(int): height of the rectangle
+    """
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
 
     @property
     def width(self):
+        """get the width of the rectangle"""
         return (self.__width)
 
     @width.setter
@@ -25,6 +31,7 @@ class Rectangle:
 
     @property
     def height(self):
+        """get the height of the rectangle"""
         return (self.__height)
 
     @height.setter
