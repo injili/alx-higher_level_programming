@@ -6,9 +6,9 @@ module 1-rectabgle
 
 class Rectangle:
     """define the class"""
-    def __init__(self, width=0, length=0):
+    def __init__(self, width=0, height=0):
         self.__width = width
-        self.__length = length
+        self.__height= height
 
     """property"""
     def width(self):
@@ -24,14 +24,14 @@ class Rectangle:
             self.__width = value
 
     """property"""
-    def length(self):
-        return (self.__length)
+    def height(self):
+        return (self.__height)
 
     """property setter"""
     def length(self, value):
-        if type(self.__length) != int:
-            raise TypeError("length must be an integer")
-        elif self.__length < 0:
-            raise ValueError("length must be >=0")
+        if type(self.__height) != int:
+            raise TypeError("height must be an integer")
+        elif self.__height < 0:
+            raise ValueError("height must be >=0")
         else:
-            self.__length = value
+            self.__height = value
