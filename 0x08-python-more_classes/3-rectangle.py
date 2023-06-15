@@ -58,6 +58,9 @@ class Rectangle:
     def __str__(self):
         """draw the rectangle sir"""
         result = ''
-        for _ in range(self.__height):
-            result += '#' * self.__width + '\n'
+        for i in range(self.__height):
+            for j in range(self.__width):
+                result += '#'
+            if (i + 1 < self.__height):
+                result += '\n'
         return (result)
