@@ -72,5 +72,5 @@ class Rectangle:
         """return a string representation of the string"""
         return (f"Rectangle({self.width}, {self.height})")
 
-    def __del__:
+    def __del__(self):
         print(f"Bye rectangle...")
