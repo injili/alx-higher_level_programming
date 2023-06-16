@@ -15,6 +15,7 @@ class Rectangle:
     """
     number_of_instances = 0
     print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
@@ -65,7 +66,7 @@ class Rectangle:
             return ("")
         else:
             return ("\n".join([str(self.print_symbol) * self.__width for
-                                rows in range(self.__height)]))
+                    rows in range(self.__height)]))
         return (result)
 
     def __repr__(self):
