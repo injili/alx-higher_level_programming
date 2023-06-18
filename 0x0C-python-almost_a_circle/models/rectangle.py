@@ -85,7 +85,7 @@ class Rectangle(Base):
                 self.__class__.__name__, self.id,self.__x, self.__y,
                 self.__width, self.__height)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         if args:
             k = 0
             for value in args:
@@ -100,3 +100,14 @@ class Rectangle(Base):
                 else:
                     self.y = value
                 k += 1
+        else:
+            if "id" in kwargs:
+                self.id = kwargs["id"]
+            if "width" in kwargs:
+                self.width = kwargs["width"]
+            if "height" in kwargs:
+                self.height = kwargs["height"]
+            if "x" in kwargs:
+                self.x = kwargs["x"]
+            if "y" in kwargs:
+                self.y = kwargs["y"]
