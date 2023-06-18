@@ -83,3 +83,8 @@ class Rectangle(Base):
             if (i + 1 < self.__height):
                 result += '\n'
         print(result)
+
+    def __str__(self):
+        return "[{:s}] ({:d}) {:d}/{:d} - {:d}/{:d}".format(
+                self.__class__.__name__, self.id,self.__x, self.__y,
+                self.__width, self.__height)
