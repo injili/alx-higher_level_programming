@@ -12,7 +12,7 @@ class Base:
     This is the base class to evey other class
 
     Args:
-        id(int): id passesd to the class
+        id(int): id passed to the class
     """
     __nb_objects = 0
 
@@ -53,3 +53,16 @@ class Base:
             dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        file_name = cls.__name__ + ".json"
+        the_list = []
+        try:
+            with open(file_name, "r", newline='') as f:
+                instance = cls.from_json_string(f.read())
+            for i, k in enumerate(instance):
+                the_list.append(cls.create(**instance[i]))
+        except:
+            pass
+        return (the_list)
