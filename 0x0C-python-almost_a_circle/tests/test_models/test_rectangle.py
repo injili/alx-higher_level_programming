@@ -26,6 +26,8 @@ class TestPep8(unittest.TestCase):
 
 class TestBase(unittest.TestCase):
     """tests for the module models/rectangle"""
+    def test_class(self):
+        self.assertEqual(type(Rectangle(15, 25)), Rectangle)
 
     def test_all_attributes_given(self):
         """Test all the attributes match"""
@@ -45,4 +47,42 @@ class TestBase(unittest.TestCase):
         self.assertTrue(r2.y == 0)
         self.assertTrue(r2.id is not None)
 
-    def 
+    def test_attribute_validation(self):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Rectangle("15", 25, 1, 2, 99)
+            Rectangle([15, 10], 25, 1, 2, 99)
+        with self.assertRaisesRegex(TypeError, "height must be an integer"):
+            Rectangle(15, "25", 1, 2, 99)
+            Rectangle(15, [25, 10], 1, 2, 99)
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Rectangle(15, 25, "1", 2, 99)
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Rectangle(15, 25, 1, "2", 99)
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Rectangle(0, 25, 1, 2, 99)
+            Rectangle(-4, 25, 1, 2, 99)
+        with self.assertRaisesRegex(ValueError, "height must be > 0"):
+            Rectangle(15, 0, 1, 2, 99)
+            Rectangle(15, -4, 1, 2, 99)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Rectangle(15, 25, -4, 2, 99)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Rectangle(15, 25, 1, -4, 99)i
+
+    def test_private_attribute_access(self):
+        with self.assertRaises(AttributeError):
+            print(Rectangle.__width)
+            print(Rectangle.__height)
+            print(Rectangle.__x)
+            print(Rectangle.__y)
+
+    def test_invalid_arguments(self):
+        with self.assertRaises(TypeError):
+            Rectangle(15, 25, 1, 2, 99, 90)
+        with self.assertRaises(TypeError):
+            Rectangle(15)
+            Rectangle()
+            Rectangle(None)
+
+    def test_the_area(self):
+        self.
