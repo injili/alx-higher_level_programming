@@ -82,3 +82,52 @@ class TestBase(unittest.TestCase):
     def test_the_print(self):
         out = "[Rectangle] (99) 1/2 - 15/25"
         self.assertEqual(str(Rectangle(15, 25, 1, 2, 99)), out)
+
+    def test_the_dislay(self):
+        with StringIO() as xept, redirect_stdout(xept):
+            Rectangle(3, 4).display()
+            x = xept.getvalue()
+        self.assertEqual(x, '###\n###\n###\n###\n')
+        with StringIO() as xept, redirect_stdout(xept):
+            Rectangle(3, 4, 1, 2).display()
+            x = xept.getvalue()
+        self.assertEqual(x, '\n\n ###\n ###\n ###\n ###\n')
+
+    def test_the_update(self):
+        """test update with *args"""
+        r = Rectangle(15, 25, 1, 2, 99)
+        r.update(7, 7, 7, 7, 7)
+        self.assertEqual(str(r), '[Rectangle] (7) 7/7 - 7/7')
+        r.update()
+        self.assertEqual(str(r), '[Rectangle] (7) 7/7 - 7/7')
+        r.update(90)
+        self.assertEqual(str(r), '[Rectangle] (90) 7/7 - 7/7')
+        r.update(70, 10)
+        self.assertEqual(str(r), '[Rectangle] (70) 7/7 - 10/7')
+        r.update(80, 15, 20)
+        self.assertEqual(str(r), '[Rectangle] (80) 7/7 - 15/20')
+        r.update(99, 15, 25, 1)
+        self.assertEqual(str(r), '[Rectangle] (99) 1/7 - 15/25')
+        r.update(99, 15, 25, 1, 2)
+        self.assertEqual(str(r), '[Rectangle] (99) 1/2 - 15/25')
+        """test update fail cases"""
+        with self.assertRaiseRegex(TypeError, "width must be an integer"):
+            r.update(99, "width", 25, 1, 2)
+        with self.assertRaiseRegex(TypeError, "x must be > 0")):
+            r.update(99, 15, 25, -9, 4)
+        """test update with **kwargs"""
+        r1 = Rectangle(15, 25, 1, 2, 99)
+        r1.update(id=9)
+        self.assertEqual(str(r1), '[Rectangle] (9) 1/2 - 15/25')
+        r1.update(width=7)
+        self.assertEqual(str(r1), '[Rectangle] (9) 1/2 - 7/25')
+        r1.update(height=4)
+        self.assertEqual(str(r1), '[Rectangle] (9) 1/2 - 7/4')
+        r1.update(x=8)
+        self.assertEqual(str(r1), '[Rectangle] (9) 8/2 - 7/4')
+        r1.update(y=19)
+        self.updateEqual(str(r1), '[Rectangle] (9) 8/19 - 7/4')
+        r1.update(id=99, width=14, height=24, x=1, y=2)
+        self.assertEqual(str(r1), '[Rectangle] (99) 1/2 - 14/24')
+        r1.update(invalid=12, twelve=8, x=900)
+        self.assertEqual(str(r1), '[Rectangle] (99) 900/2 - 14/24')
