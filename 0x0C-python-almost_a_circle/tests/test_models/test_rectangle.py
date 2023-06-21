@@ -14,6 +14,7 @@ from io import StringIO
 from contextlib import redirect_stdout
 rectangle = rectangle.Rectangle
 
+
 class TestPep8(unittest.TestCase):
     """Pep8 models/rectangle.py and tests/test_modules/test_rectangle.py"""
     def test_pep8(self):
@@ -23,6 +24,7 @@ class TestPep8(unittest.TestCase):
         files = ["models/rectangle.py", "tests/test_models/test_rectangle.py"]
         errors += style.check_files(files).total_errors
         self.assertEqual(errors, 0, 'Fix Pep8')
+
 
 class TestBase(unittest.TestCase):
     """tests for the module models/rectangle"""
@@ -67,7 +69,7 @@ class TestBase(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(15, 25, -4, 2, 99)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
-            Rectangle(15, 25, 1, -4, 99)i
+            Rectangle(15, 25, 1, -4, 99)
 
     def test_private_attribute_access(self):
         with self.assertRaises(AttributeError):
@@ -85,4 +87,13 @@ class TestBase(unittest.TestCase):
             Rectangle(None)
 
     def test_the_area(self):
-        self.
+        self.assertEqual(Rectangle(4, 5).area(), 20)
+        self.assertEqual(Rectangle(15, 25, 1, 2, 99).area(), 375)
+        self.assertEqual(Rectangle(3, 12, 1, 2).area(), 36)
+
+    def test_the_print(self):
+        exp1 = "[Rectangle] (99) 1/2 - 15/25"
+        self.assertEqual(str(Rectangle(15, 25, 1, 2, 99)), exp1)
+
+    def test_the_display(self):
+        self.assertEqual(Rectangle(2, 3).display(), exp2)
