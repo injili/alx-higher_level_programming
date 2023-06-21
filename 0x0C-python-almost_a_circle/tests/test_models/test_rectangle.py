@@ -111,9 +111,9 @@ class TestBase(unittest.TestCase):
         r.update(99, 15, 25, 1, 2)
         self.assertEqual(str(r), '[Rectangle] (99) 1/2 - 15/25')
         """test update fail cases"""
-        with self.assertRaiseRegex(TypeError, "width must be an integer"):
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
             r.update(99, "width", 25, 1, 2)
-        with self.assertRaiseRegex(TypeError, "x must be > 0")):
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             r.update(99, 15, 25, -9, 4)
         """test update with **kwargs"""
         r1 = Rectangle(15, 25, 1, 2, 99)
@@ -126,7 +126,7 @@ class TestBase(unittest.TestCase):
         r1.update(x=8)
         self.assertEqual(str(r1), '[Rectangle] (9) 8/2 - 7/4')
         r1.update(y=19)
-        self.updateEqual(str(r1), '[Rectangle] (9) 8/19 - 7/4')
+        self.assertEqual(str(r1), '[Rectangle] (9) 8/19 - 7/4')
         r1.update(id=99, width=14, height=24, x=1, y=2)
         self.assertEqual(str(r1), '[Rectangle] (99) 1/2 - 14/24')
         r1.update(invalid=12, twelve=8, x=900)
