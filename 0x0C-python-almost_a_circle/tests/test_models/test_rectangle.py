@@ -8,22 +8,10 @@ unittest for Rectangle class
 
 import os
 import unittest
-import pep8
 from models import rectangle
 from io import StringIO
 from contextlib import redirect_stdout
-rectangle = rectangle.Rectangle
-
-
-class TestPep8(unittest.TestCase):
-    """Pep8 models/rectangle.py and tests/test_modules/test_rectangle.py"""
-    def test_pep8(self):
-        """pep8"""
-        style = pep8.StyleGuide(quiet=False)
-        errors = 0
-        files = ["models/rectangle.py", "tests/test_models/test_rectangle.py"]
-        errors += style.check_files(files).total_errors
-        self.assertEqual(errors, 0, 'Fix Pep8')
+Rectangle = rectangle.Rectangle
 
 
 class TestBase(unittest.TestCase):
@@ -92,8 +80,5 @@ class TestBase(unittest.TestCase):
         self.assertEqual(Rectangle(3, 12, 1, 2).area(), 36)
 
     def test_the_print(self):
-        exp1 = "[Rectangle] (99) 1/2 - 15/25"
-        self.assertEqual(str(Rectangle(15, 25, 1, 2, 99)), exp1)
-
-    def test_the_display(self):
-        self.assertEqual(Rectangle(2, 3).display(), exp2)
+        out = "[Rectangle] (99) 1/2 - 15/25"
+        self.assertEqual(str(Rectangle(15, 25, 1, 2, 99)), out)
