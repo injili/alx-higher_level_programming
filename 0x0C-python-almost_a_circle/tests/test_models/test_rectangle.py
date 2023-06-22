@@ -131,3 +131,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(str(r1), '[Rectangle] (99) 1/2 - 14/24')
         r1.update(invalid=12, twelve=8, x=900)
         self.assertEqual(str(r1), '[Rectangle] (99) 900/2 - 14/24')
+
+    def test_the_to_dictionary(self):
+        the_dict = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
+        self.assertEqual(Rectangle(10, 2, 1, 9).to_dictionary(), the_dict)
