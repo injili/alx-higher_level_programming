@@ -24,6 +24,9 @@ class TestBase(unittest.TestCase):
         except:
             pass
 
+    def test_class_called(self):
+        self.assertTrue(Base(10), self.__class__ == Base)
+
     def test_passed_id(self):
         self.assertTrue(Base(90), self.id == 90)
         self.assertTrue(Base(0), self.id == 0)
@@ -35,6 +38,10 @@ class TestBase(unittest.TestCase):
         self.assertTrue(Base(), self.id == 2)
 
     def test_private_attribute_access(self):
-        with assertRaises(TypeError):
+        with self.assertRaises(AttributeError):
             print(Base.__nb__objects)
-            print(Base.nb__objects
+            print(Base.nb__objects)
+
+    def test_invalid_arguments(self):
+        with self.assertRaises(TypeError):
+            Base(10, 10)
