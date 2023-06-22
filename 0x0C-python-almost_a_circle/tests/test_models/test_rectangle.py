@@ -135,3 +135,8 @@ class TestBase(unittest.TestCase):
     def test_the_to_dictionary(self):
         the_dict = {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10}
         self.assertEqual(Rectangle(10, 2, 1, 9).to_dictionary(), the_dict)
+        the_dict2 = Rectangle(12, 24, 1, 2, 99)
+        self.assertEqual(type(the_dict2), dict)
+        r2 = Rectangle(10, 10)
+        r2.update(**the_dict2)
+        self.assertEqual(str(r2), '[Rectangle] (99) 1/2 - 12/24')
