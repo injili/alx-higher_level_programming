@@ -4,11 +4,13 @@
 module 101-nqueen
 """
 
+
 def safe(board, row, col):
     for x in range(col):
         if board[x] is row or abs(board[x] - row) is abs(x - col):
             return False
     return True
+
 
 def the_board(board, col):
     n = len(board)
@@ -20,6 +22,7 @@ def the_board(board, col):
         if safe(board, row, col):
             board[col] = row
             the_board(board, col + 1)
+
 
 if __name__ == "__main__":
     import sys
