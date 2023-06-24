@@ -1,0 +1,45 @@
+===================================
+Tests for Module 5-text_indentation
+===================================
+
+Importation:
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Success Cases:
+	>>> text_indentation("""Lorem ipsum dolor amet, consectetur adipiscing elit. \
+	... Quonam modo? Utrum igitur: tibi litteram videor an totas paginas commovere?""")
+	Lorem ipsum dolor amet, consectetur adipiscing elit.
+	<BLANKLINE>
+	Quonam modo?
+	<BLANKLINE>
+	Utrum igitur:
+	<BLANKLINE>
+	tibi litteram videor an totas paginas commovere?
+	<BLANKLINE>
+
+	>>> text_indentation("   X B.     Y D?      Z F:     W H     ")
+	X B.
+	<BLANKLINE>
+	Y D?
+	<BLANKLINE>
+	Z F:
+	<BLANKLINE>
+	W H
+
+	>>> text_indentation("   Hello     \n     .     ")
+	Hello
+	.
+	<BLANKLINE>
+
+	>>> text_indentation("      Heyy      ")
+	Heyy
+
+	>>> text_indentation("    ")
+
+FAIL CASES:
+
+Test other data types:
+	>>> text_indentation(-1)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string
