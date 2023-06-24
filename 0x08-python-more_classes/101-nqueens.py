@@ -27,7 +27,8 @@ def the_board(board, col):
 if __name__ == "__main__":
     import sys
 
-    if len(sys.argv) != 2:
+
+if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
 
