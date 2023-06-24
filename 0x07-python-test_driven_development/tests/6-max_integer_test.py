@@ -6,6 +6,7 @@ tests
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
+
 class TestMaxInteger(unittest.TestCase):
     """
     run with python3 -m unittest -v tests/6-max_integer_test.py
@@ -36,4 +37,20 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer([[1, 3], [1, 1]]), [1, 3])
 
     def test_error_handling(self):
-        with self.assertRaises
+        with self.assertRaises(TypeError):
+            max_integer([None, True])
+        with self.assertRaises(TypeError):
+            max_integer([-10, "x", [9, 8]])
+        with self.assertRaises(TypeError):
+            max_integer({1, 2, 3, 5})
+        with self.assertRaises(TypeError):
+            max_integer({1, 2}, {1, 3, 5})
+
+    def test_none(self):
+        self.assertIsNone(max_integer([]), None)
+        self.assertIsNone(max_integer([None]), None)
+        self.assertIsNone(max_integer(), None)
+
+
+if __name__ == "__main__":
+    unittest.main()
