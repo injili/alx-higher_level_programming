@@ -1,0 +1,65 @@
+=================================
+Doctest for module 100-matrix_mul
+=================================
+
+#run with the command python3 -v doctest -m tests/100-matrix_mul.py
+
+import the function:
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Test function:
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+	[[7, 10], [15, 22]]
+
+	>>> matrix_mul([[1, 2]], [[3, 4], [5, 6]])
+	[[13, 16]]
+
+	>>> matrix_mul(7, [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list
+
+	>>> matrix_mul([[1, 2], [3, 4]], 7)
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list
+
+	>>> matrix_mul([1, 2], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a must be a list of lists
+
+	>>> matrix_mul([[1, 2], [3, 4]], [3, 4])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b must be a list of lists
+
+	>>> matrix_mul([], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+	>>> matrix_mul([[]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+	>>> matrix_mul([[1, 2], [3, 4]], [])
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+
+	>>> matrix_mul([['a', 'b'], [3, 4]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	TypeError: m_a should contain only integers or floats
+
+	>>> matrix_mul([[1, 2], [3, 4]], [[1, 2], ['a', 'b']])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b should contain only integers or floats
