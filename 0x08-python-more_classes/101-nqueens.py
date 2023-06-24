@@ -1,59 +1,41 @@
 #!/usr/bin/python3
 
 """
-module 101-nqueens
+module 101-nqueen
 """
 
-import sys
+def safe(board, row, col):
+    for x in range(col):
+        if board[x] is row or abs(board[x] - row) is abs(x - col):
+            return False
+    return True
 
-if len(sys.argv) != 2:
-    print("usage: nqueens N\n")
-    sys.exit(1)
+def the_board(board, col):
+    n = len(board)
+    if col is n:
+        print(str([[c, board[c]] for c in range(n)]))
+        return
 
-if not (sys.argv[1].isdigit()):
-    print("N must be a number\n")
-    sys.exit(1)
+    for row in range(n):
+        if safe(board, row, col):
+            board[col] = row
+            the_board(board, col + 1)
 
-if int(sys.argv[1]) < 4:
-    print("N must be at least 4\n")
-    sys.exit(1)
+if __name__ == "__main__":
+    import sys
 
-n = int(sys.argv[1])
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
 
-board = [[0] * n for _ in range(n)]
+    if not(sys.argv[1].isdigit()):
+        print("N must be a number")
+        sys.exit(1)
 
-def attack(i, j):
-    """
-    check for queen in row or column
-    """
-    for x in range(0, n):
-        if board[i][x] == 1 or board[x][j] == 1:
-            return True
+    if int(sys.argv[1]) < 4:
+        print("N must be at least 4")
+        sys.exit(1)
 
-    for x in range(0, n):
-        for y in range (0, n):
-            if (x + y == i + j) or (x - y == i + j):
-                if board[x][y] == 1:
-                    return True
-
-    return False
-
-def queen(count):
-    """
-    count solutions found
-    """
-    if count == 0:
-        return True
-    for i in range(0, n):
-        for j in range(0, n):
-            if (not(attack(i, j))) and (board[i][j] != 1):
-                board[i][j] = 1
-                if queen(count - 1):
-                    return True
-                board[i][j] = 0
-
-    return False
-
-queen(n)
-for i in board:
-    print(i)
+    n = int(sys.argv[1])
+    board = [0 for col in range(n)]
+    the_board(board, 0)
