@@ -3,6 +3,7 @@
 module 101-locked_class
 """
 
+
 class LockedClass:
     """
     locks out all other instances but first_name
