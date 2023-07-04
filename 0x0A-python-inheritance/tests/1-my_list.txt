@@ -1,0 +1,53 @@
+==========================
+Tests for module 1-my_list
+==========================
+
+#run with: python3 -m doctest -v tests/1-my_list.txt
+
+IMPORT:
+	>>> MyList = __import__('1-my_list').MyList
+
+TEST CASES:
+positive int
+	>>> my_list_0 = MyList()
+	>>> my_list_0.append(7)
+	>>> my_list_0.append(1)
+	>>> my_list_0.append(96)
+	>>> print(my_list_0)
+	[7, 1, 96]
+
+	>>> my_list_0.print_sorted()
+	[1, 7, 96]
+
+negative int
+	>>> my_list_0.append(-9)
+	>>> print(my_list_0)
+	[7, 1, 96, -9]
+
+	>>> my_list_0.print_sorted()
+	[-9, 1, 7, 96]
+
+try with zero
+	>>> my_list_0.append(0)
+	>>> print(my_list_0)
+	[7, 1, 96, -9, 0]
+
+	>>> my_list_0.print_sorted()
+	[-9, 0, 1, 7, 96]
+
+single int
+	>>> my_list_1 = MyList()
+	>>> my_list_1.append(96)
+	>>> print(my_list_1)
+	[96]
+
+	>>> my_list_1.print_sorted()
+	[96]
+
+empty list
+	>>> my_list_2 = MyList()
+	>>> print(my_list_2)
+	[]
+
+	>>> my_list_2.print_sorted()
+	[]
