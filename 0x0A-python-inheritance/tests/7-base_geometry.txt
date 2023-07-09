@@ -1,0 +1,8 @@
+====================================
+Tests for the module 7-base_geometry
+====================================
+
+#run with command python3 -v doctest -m tests/7-base_geometry.txt
+
+IMPORT
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
