@@ -2,7 +2,17 @@
 Tests for the module 7-base_geometry
 ====================================
 
-#run with command python3 -v doctest -m tests/7-base_geometry.txt
+#run with command python3 -m doctest -v tests/7-base_geometry.txt
 
 IMPORT
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+TEST CASES
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("my_int", 12)
+
+	>>> bg = BaseGeometry()
+	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
