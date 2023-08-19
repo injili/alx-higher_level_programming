@@ -31,6 +31,7 @@ $ sudo apt-get install -y nodejs
 ### Install semi-standard
 $ sudo npm install semistandard --global
 
+## Tasks
 [0. First constant, first print](0-javascript_is_amazing.js) - A script that prints "JavaScript is amazing".  
 [1. 3 languages](1-multi_languages.js) - A script that prints 3 lines: “C is fun”, “Python is cool" and “JavaScript is amazing”.  
 [2. Arguments](2-arguments.js) - A script that prints a message depending on the number of arguments passed: If no arguments are passed to the script, it prints “No argument”, If only one argument is passed to the script, it prints “Argument found” otherwise, the script prints “Arguments found”.  
