@@ -22,13 +22,13 @@ class Rectangle {
     }
   }
 
-  rotate() {
-    let partial = this.width;
+  rotate () {
+    const partial = this.width;
     this.width = this.height;
     this.height = partial;
   }
 
-  double() {
+  double () {
     this.width *= 2;
     this.height *= 2;
   }
