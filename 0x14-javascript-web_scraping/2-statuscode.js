@@ -7,5 +7,5 @@ request(theUrl, function (error, response, body) {
     console.log(error);
     return;
   }
-  console.log('code: ', response.statusCode);
+  console.log('code: ', response && response.statusCode);
 });
