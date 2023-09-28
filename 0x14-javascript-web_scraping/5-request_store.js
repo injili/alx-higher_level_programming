@@ -5,7 +5,7 @@ const filename = process.argv[3];
 const fs = require('fs');
 const request = require('request');
 
-request(baseURL, (error, response, body) => {
+request(url, (error, response, body) => {
   if (error == null) {
     fs.writeFileSync(bodyResp, body);
   }
