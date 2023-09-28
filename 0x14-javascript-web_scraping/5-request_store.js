@@ -7,6 +7,6 @@ const request = require('request');
 
 request(url, (error, response, body) => {
   if (error == null) {
-    fs.writeFileSync(bodyResp, body);
+    fs.writeFileSync(filename, body);
   }
 });
